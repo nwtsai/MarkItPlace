@@ -231,12 +231,12 @@ function update() {
 
 //search description and title for words
 function searchText(title, description) {
-	var patterm = document.getElementById("searchTerm").value.trim();
+	var patterm = document.getElementById("searchTerm").value.trim().toLowerCase();
 	if (patterm == "") {
 		return true;
 	}
 	//patterm="/("+patterm.split(" ").join("|")+")/im";
-	return title.search(patterm) > -1 || description.search(patterm) > -1;
+	return title.toLowerCase().search(patterm) > -1 || description.toLowerCase().search(patterm) > -1;
 }
 
 // Make the checkbox style to be filled in
