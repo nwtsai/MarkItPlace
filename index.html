@@ -29,19 +29,29 @@
     <div class="nav-wrapper nav-wrapper-fixed-top z-depth-1" id="navbar">
       <a href="index.html"><img id="logo" src="images/markitplace_logo4.png" width="45"></img></a>
       <a class="brand-logo center"><span style="color: #726363;">MARK</span><span style="color: #f7f5f5;">IT</span><span style="color: #f7f5f5;">PLACE</span></a>
+      <!--<form>
+		<div class="input-field row col s4">
+		  <input id="search" type="search" required>
+		  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+		  <i class="material-icons">close</i>
+		</div>
+	  </form>-->	
     </div>
   </nav>
 </div>
-<div class="row">
+
+<!--<div class="row">
 	<div id="searchbar" class="input-field col s8">
 		<input id="searchTerm" type="text">
 	</div>
-	<div>
+	<div class="">
 		<button class="btn waves-effect waves-light red lighten-1 btn z-depth-1 col s2" onclick="loadItems()"><i class="material-icons">search</i></button>
 	</div>
-	<div>	
+	<div class="">	
 		<button class="btn waves-effect waves-light red lighten-1 btn z-depth-1 col s2" onclick="clearSearch()"><i class="material-icons">close</i></button>
 	</div>
+</div>-->
+
 <div id="categoryFilter" style="display: none;" class='filter-ui'></div>
 <div id="priceFilter" style="display: none;" class='filter-ui'></div>
 
@@ -96,6 +106,7 @@
   <ul id="floating-buttons">
     <li><a id="filterButton1Background" href="javascript:filterButtonPressed('category')" class="btn-floating"><i id="filterButton1Icon" class="material-icons">turned_in</i></a></li>
     <li><a id="filterButton2Background" href="javascript:filterButtonPressed('price')" class="btn-floating"><i id="filterButton2Icon" class="material-icons">attach_money</i></a></li>
+    <li><a id="filterButton3Background" href="javascript:filterButtonPressed('search')" class="btn-floating"><i id="filterButton3Icon" class="material-icons">search</i></a></li>
   </ul>
 </div>
 
