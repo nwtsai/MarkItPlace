@@ -91,17 +91,6 @@ function loadItems() {
 	  if (response[row][0] == userName) {
 		  output += "#" + row + ": " + response[row][2] + " ($" + response[row][3] + ")<br>";
 	  }
-	  console.log("got here");
-	  var term = document.getElementById("searchTerm").value.trim();
-	  console.log("this is the term:"+term);
-	  if (term != ""){
-		//var patterm = "/("+ term.split(" ").join('|')+")/im";
-		var patterm = term.toLowerCase();
-		console.log(patterm);
-		if(!multipleSearch(patterm, response[row][2].toLowerCase()) && !multipleSearch(patterm, response[row][4].toLowerCase())){
-			continue;
-		}  
-	  }
       waitingMarkers++;
 	  let beforeParse = response[row][1].split(';');
 	  let availabilities = [];
@@ -236,8 +225,18 @@ function update() {
   let pricerange = new PriceRange(ranges);
 
   featureLayer.setFilter(function(feature) { 
-    return (enabled[feature.properties["category"]] && pricerange.check(feature.properties["price"])); 
+    return (enabled[feature.properties["category"]] && pricerange.check(feature.properties["price"]) && searchText(feature.properties["plainTextTitle"],feature.properties["plainTextDescription"])); 
   });
+}
+
+//search description and title for words
+function searchText(title, description) {
+	var patterm = document.getElementById("searchTerm").value.trim();
+	if (patterm == "") {
+		return true;
+	}
+	patterm = "/("+patterm.split(" ").join("|")+")/im";
+	return title.search(patterm) > -1 || description.search(patterm) > -1;
 }
 
 // Make the checkbox style to be filled in
@@ -262,7 +261,9 @@ function createMarker(userName, location, title, price, description, category, c
         properties: {
           title: '<div style="font-family: Roboto; font-size: 20px;"><b>' + title + '</b></div><span style="color: green;"><div style="margin-top: 7px; font-family: Roboto; font-size: 16px;">$' + price + '</div></span>',
           description: '<span style="color: #726363;"><div style="margin-top: 1px; font-family: Roboto; font-size: 12px">' + description + '<br>Seller: ' + userName + " (" + contactInformation + ')</div></span>',
-          'category': category,
+          plainTextTitle: title,
+		  plainTextDescription: description,
+		  'category': category,
           'price': price,
           'color': categories[category].color,
           'marker-color': categories[category].marker_color,
@@ -333,11 +334,4 @@ function toggleForm() {
 function clearSearch() {
 	document.getElementById("searchTerm").value = "";
 	loadItems();
-}
-
-function multipleSearch(patterm, textInput) {
-	if(textInput.indexOf(patterm) > -1) {
-		return true;
-	}
-	return false;
 }
