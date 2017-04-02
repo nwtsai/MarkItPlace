@@ -45,19 +45,11 @@
   z-index: 10;
 }
 
-#filterButton1Background {
+#filterButton1Background, #filterButton2Background, #filterButton3Background {
   background-color: #726363;
 }
 
-#filterButton2Background {
-  background-color: #726363;
-}
-
-#filterButton1Icon {
-  color: #f7f5f5;
-}
-
-#filterButton2Icon {
+#filterButton1Icon, #filterButton2Icon, #filterButton3Icon {
   color: #f7f5f5;
 }
 
@@ -116,19 +108,11 @@
     z-index: 10;
   }
 
-  #filterButton1Background {
+  #filterButton1Background, #filterButton2Background, #filterButton3Background {
     background-color: #f7f5f5;
   }
 
-  #filterButton2Background {
-    background-color: #f7f5f5;
-  }
-
-  #filterButton1Icon {
-    color: #726363;
-  }
-
-  #filterButton2Icon {
+  #filterButton1Icon, #filterButton2Icon, #filterButton3Icon {
     color: #726363;
   }
 
@@ -292,4 +276,13 @@ body {
 
 .myHeader {
   color: #726363;
+}
+
+#searchbar {
+  position: absolute;
+  z-index: 100;
+  background-color: white;
+  right: 0px;
+  top: 49px;
+  width: 500px;
 }
