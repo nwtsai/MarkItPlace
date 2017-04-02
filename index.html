@@ -168,11 +168,6 @@
 								<input id="imageUpload" name="file" type="file" class="cloudinary-fileupload">
 							</div>
 						</div>
-						<div class="row">
-							<div class="file-path-wrapper">
-								<input id="picture" class="file-path validate" type="text">
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -203,14 +198,14 @@
 						<input id="item" type="text" class="validate" />
 						<label for="item">Item</label>
 					</div>
-					<div class="input-field switch col s12 l6">
+					<!--div class="input-field switch col s12 l6">
 						<label>
 							Item
 							<input type="checkbox" id="isService" onchange="selectItemType()">
 							<span class="lever"></span>
 							Service
 						</label>
-					</div>
+					</div-->
 				</div>
 				<div class="row">
 					<!-- Price Section -->
@@ -261,12 +256,14 @@
 					<div class="col s12">
 						<button id="availabilityButton" type="button" class="waves-effect waves-light btn z-depth-2 FormButtonText" onClick="addAvailability(this.parentNode.parentNode);"><i class="material-icons right">add</i>Add Availability</button>
 					</div>
-					<div class="col s12">
-						<button id="mapButton" onClick="toggleForm();" class="btn waves-effect waves-light lighten-1 btn z-depth-2 FormButtonText">
-							Map<i class="material-icons right">public</i>
-						</button>
+					<div class="col s12 m6" style="padding-bottom: 10px;">
 						<button id="markItButton" onClick="submitForm();" class="btn waves-effect waves-light red lighten-1 btn z-depth-2 FormButtonText">
 							Mark It<i class="material-icons right">location_on</i>
+						</button>
+					</div>
+					<div class="col s12 m6" style="padding-bottom: 10px;">
+						<button id="mapButton" onClick="toggleForm();" class="btn waves-effect waves-light lighten-1 btn z-depth-2 FormButtonText">
+							Back to Map<i class="material-icons right">public</i>
 						</button>
 					</div>
 				</div>
