@@ -291,19 +291,27 @@ function drawMarkers() {
 function filterButtonPressed(filter_type) {
   var categoryFilter = document.getElementById("categoryFilter");
   var priceFilter = document.getElementById("priceFilter");
+  var searchBar = document.getElementById("searchbar");
   if (filter_type == 'category') {
     categoryFilter.style.display = "";
     priceFilter.style.display = "none";
+    searchbar.style.display = "none"
   } else if (filter_type == 'price') {
     categoryFilter.style.display = "none";
     priceFilter.style.display = "";
-  } 
+    searchbar.style.display = "none"
+  } else if (filter_type == 'search') {
+    categoryFilter.style.display = "none";
+    priceFilter.style.display = "none";
+    searchbar.style.display = "";
+  }
 }
 
 // Hide the filter checkbox lists
 function hideFilterLists() {
   categoryFilter.style.display = "none";
   priceFilter.style.display = "none";
+  searchbar.style.display = "none"
 }
 
 function toggleForm() {

@@ -277,3 +277,12 @@ body {
 .myHeader {
   color: #726363;
 }
+
+#searchbar {
+  position: absolute;
+  z-index: 100;
+  background-color: white;
+  right: 0px;
+  top: 49px;
+  width: 500px;
+}
