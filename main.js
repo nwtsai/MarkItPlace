@@ -235,7 +235,7 @@ function searchText(title, description) {
 	if (patterm == "") {
 		return true;
 	}
-	patterm = "/("+patterm.split(" ").join("|")+")/im";
+	//patterm="/("+patterm.split(" ").join("|")+")/im";
 	return title.search(patterm) > -1 || description.search(patterm) > -1;
 }
 
