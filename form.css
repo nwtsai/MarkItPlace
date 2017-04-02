@@ -1,0 +1,16 @@
+#title {
+    text-align: center;    
+}
+
+#sellItem {
+    display: inline-block;
+    position: relative;
+    font-family: "Fugaz One", cursive;
+    text-transform: uppercase;
+}
+
+#image {
+    width: 500px;
+    height: 500px;
+    border: solid 1px #000000;
+}

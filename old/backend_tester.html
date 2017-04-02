@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<!--
+MarkItPlace
+backend_tester.html
+
+Kevin Hsieh
+1 April 2017
+LA Hacks 2017
+-->
+<head>
+<title>Markitplace Backend Tester</title>
+<script type="text/javascript" src="backend.js"></script>
+<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+<script type="text/javascript">
+var userId, userName;
+
+function onAuth() {
+	document.getElementById("authorize-button").innerHTML = "Switch account";
+	document.getElementById("authorized").style.display = "";
+	loadItems();
+	userinfo(function onSuccess(response) {
+		console.log("User info: " + JSON.stringify(response, null, 2));
+		userId = response.id, userName = response.name;
+		document.getElementById("userName").innerHTML = userName;
+	});
+}
+function loadItems() {
+	getValues(function onSuccess(response) {
+		let output = "";
+		for (let row = 0; row < response.length; row++) {
+			output += (row == 0 ? "#" : row) + '\t';
+			for (let col = 0; col < response[row].length; col++)
+				output += response[row][col] 
+					+ (col == response[row].length - 1 ? '\n' : '\t');
+		}
+		document.getElementById("items").innerHTML = output;
+	});
+}
+function addItem() {
+	appendRow(userId, [
+		userName,
+		document.getElementById("item").value,
+		document.getElementById("price").value
+	], function onSuccess(response) {
+		loadItems();
+	});
+}
+function deleteItem() {
+	deleteRow(userId, document.getElementById("toDelete").value,
+		function onSuccess(response) {
+		if (response)
+			loadItems();
+		else
+			alert("Unauthorized");
+	});
+}
+</script>
+</head>
+<body>
+	<h1>MarkItPlace Backend Tester</h1>
+	<div id="authorize">
+		<h2>Login</h2>
+		User: <span id="userName"></span><br><br>
+		Please login using your g.ucla.edu account.<br>
+		<button id="authorize-button" onclick="handleAuthClick()">
+			Login
+		</button>
+	</div>
+	<div id="authorized" style="display: none">
+		<h2>Buy</h2>
+		<pre id="items"></pre>
+		<button onClick="loadItems()">Refresh</button>
+		
+		<h2>Sell</h2>
+		<table><tbody>
+		<tr>
+			<td>Item</td>
+			<td><input type="text" id="item"></td>
+		</tr>
+		<tr>
+			<td>Price</td>
+			<td><input type="text" id="price"></td>
+		</tr>
+		</tbody></table>
+		<button onClick="addItem()">Add</button>
+		
+		<h2>Delete</h2>
+		Item #: 
+		<input type="text" id="toDelete"></input>
+		<button onClick="deleteItem()">Delete</button>
+	</div>
+</body>
+</html>

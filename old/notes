@@ -1,0 +1,11 @@
+form to sell an item
+    name (textbox)
+    facebook username (textbox)
+        if we have time use facebook API
+    item (textbox)
+    description (text area)
+    price (textbox)
+
+message seller:
+https://messenger.com/t/username
+replace username with the given username from the form
