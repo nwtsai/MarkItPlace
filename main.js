@@ -264,7 +264,9 @@ function createMarker(userName, location, title, price, description, category, c
         properties: {
           title: '<div style="font-family: Roboto; font-size: 20px;"><b>' + title + '</b></div><span style="color: green;"><div style="margin-top: 7px; font-family: Roboto; font-size: 16px;">$' + price + '</div></span>',
           description: '<span style="color: #726363;"><div style="margin-top: 1px; font-family: Roboto; font-size: 12px">' + description + '<br>Seller: ' + userName + " (" + contactInformation + ')</div></span><br><img src="http://res.cloudinary.com/markitplace/image/upload/'+imageID+'" width="100px" height="auto">',
-          'category': category,
+          plainTextTitle: title,
+		  plainTextDescription: description,
+		  'category': category,
           'price': price,
           'color': categories[category].color,
           'marker-color': categories[category].marker_color,
