@@ -60,6 +60,7 @@
 	<td><input id="searchTerm" type="text"></td>
 	<td style="width: 10px;"><button class="waves-effect waves-light btn z-depth-2" onClick="update();"><i class="material-icons">search</i></button></td>
 	</table></tbody></tr>
+	</tbody>
 </div>
 
 <!-- MAPBOX -->
@@ -136,6 +137,7 @@
 	
 	<!-- CURRENT LISTINGS -->
 	<br>
+	<div class="row container">
 	<div class="row">
 		<div class="col l2 m1 s0"></div>
 		<div class="col l8 m10 s12">
@@ -145,12 +147,13 @@
 		</div>
 		<div class="col l2 m1 s0"></div>
 	</div>
-	<div id="myListings" style="padding: 0px 30px 0px 30px;"></div>
-	<div style="padding: 0px 30px 0px 30px;">
+	<div id="myListings"></div>
+	<div>
 		<table><tbody><tr>
 			<td><input type="text" id="toDelete" placeholder="Enter listing number to delete"></input></td>
 			<td style="width: 10px;"><button id="deleteButton" class="waves-effect waves-light btn z-depth-2" onClick="deleteItem()"><i class="material-icons">delete</i></button></td>
 		</tr></tbody></table>
+	</div>
 	</div>
 
 	<br>
@@ -284,6 +287,7 @@
 						</button>
 					</div>
 				</div>
+				<br>
 			</div>
 		</div>
 	</div>
