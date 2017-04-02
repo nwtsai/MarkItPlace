@@ -1,6 +1,6 @@
 function submitForm() {
-    validateForm();
-    addItem();
+    if (validateForm())
+    	addItem();
 }
 
 // -----------------------------------------------------------------------------
@@ -233,15 +233,16 @@ function validateForm() {
 			}
 
             // Check for semicolon
-            if (timeFrom.contains(';')) {
+			
+            if (timeFrom.indexOf(';') > -1) {
                 alert("Please do not use semicolon(s) in 'Time From' for Availibility " + availability);
                 return false;
             }
-            else if (timeTo.contains(';')) {
+            else if (timeTo.indexOf(';') > -1) {
                 alert("Please do not use semicolon(s) in 'Time To' for Availibility " + availability);
                 return false;
             }
-            else if (location.contains(';')) {
+            else if (location.indexOf(';') > -1) {
                 alert("Please do not use semicolon(s) in 'Location' for Availibility " + availability);
                 return false;
             }
@@ -249,15 +250,15 @@ function validateForm() {
 	}
 
     // Check for semicolon
-    if (contactInformation.contains(';')) {
+    if (contactInformation.indexOf(';') > -1) {
         alert("Please do not use semicolon(s) in the Contact Information");
         return false;
     }
-    else if (product.contains(';')) {
+    else if (product.indexOf(';') > -1) {
         alert("Please do not use semicolon(s) in the Item Name");
         return false;
     }
-    else if (description.contains(';')) {
+    else if (document.getElementById("description").value.indexOf(';') > -1) {
         alert("Please do not use semicolon(s) in the Description");
         return false;
     }

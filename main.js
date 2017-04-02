@@ -105,7 +105,7 @@ function loadItems() {
 			currentTime - parseInt(availability["timeFrom"]) > 0 &&
 		  	currentTime - parseInt(availability["timeTo"]) < 0) {
 			createMarker(response[row][0], availability["location"], response[row][2], 
-				response[row][3], response[row][4], response[row][5], response[row][6], response[row][7]);
+				response[row][3], response[row][4], response[row][5], response[row][6], response[row][7], response[row][8]);
 			break;
 		  }
 	  }
