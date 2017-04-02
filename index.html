@@ -56,9 +56,9 @@
 <div id="categoryFilter" style="display: none;" class='filter-ui'></div>
 <div id="priceFilter" style="display: none;" class='filter-ui'></div>
 <div id="searchbar" style="display: none;" class="input-field">
-	<table><tbody><tr>
+	<table id="searchBarTable"><tbody><tr>
 	<td><input id="searchTerm" type="text"></td>
-	<td><button class="waves-effect waves-light btn z-depth-2" onClick="update();"><i class="material-icons">search</i></button></td>
+	<td style="width: 10px;"><button class="waves-effect waves-light btn z-depth-2" onClick="update();"><i class="material-icons">search</i></button></td>
 	</table></tbody></tr>
 </div>
 
@@ -149,7 +149,7 @@
 	<div style="padding: 0px 30px 0px 30px;">
 		<table><tbody><tr>
 			<td><input type="text" id="toDelete" placeholder="Enter listing number to delete"></input></td>
-			<td><button id="deleteButton" class="waves-effect waves-light btn z-depth-2" onClick="deleteItem()"><i class="material-icons">delete</i></button></td>
+			<td style="width: 10px;"><button id="deleteButton" class="waves-effect waves-light btn z-depth-2" onClick="deleteItem()"><i class="material-icons">delete</i></button></td>
 		</tr></tbody></table>
 	</div>
 
