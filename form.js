@@ -268,7 +268,8 @@ function validateForm() {
 // -----------------------------------------------------------------------------
 // Submit Form
 // -----------------------------------------------------------------------------
-	
+
+var imageID = 0;
 function addItem() {
 	var availabilities = [];
 	var numOfAvailabilities = $("#availability-list").find("select").length;
@@ -293,7 +294,7 @@ function addItem() {
 	appendRow(userId, [
 		userName,
 		// username, [time:location] pairs, title, price, description, category, contact type, contact information, image ID
-		availabilities.toString(),
+		availabilities.join(';'),
 		document.getElementById("item").value,
 		document.getElementById("price").value,
 		document.getElementById("description").value,
