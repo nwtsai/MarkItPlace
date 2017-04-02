@@ -289,3 +289,8 @@ body {
 #searchterm {
   width: 100%;
 }
+
+#searchButton {
+  background-color: #5ecacd;
+  color: #f7f5f5;
+}

@@ -28,29 +28,10 @@
   <nav>
     <div class="nav-wrapper nav-wrapper-fixed-top z-depth-1" id="navbar">
       <a href="index.html"><img id="logo" src="images/markitplace_logo4.png" width="45"></img></a>
-      <a class="brand-logo center"><span style="color: #726363;">MARK</span><span style="color: #f7f5f5;">IT</span><span style="color: #f7f5f5;">PLACE</span></a>
-      <!--<form>
-		<div class="input-field row col s4">
-		  <input id="search" type="search" required>
-		  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-		  <i class="material-icons">close</i>
-		</div>
-	  </form>-->	
+      <a class="brand-logo center"><span style="color: #726363;">MARK</span><span style="color: #f7f5f5;">IT</span><span style="color: #f7f5f5;">PLACE</span></a>	
     </div>
   </nav>
 </div>
-
-<!--<div class="row">
-	<div id="searchbar" class="input-field col s8">
-		<input id="searchTerm" type="text">
-	</div>
-	<div class="">
-		<button class="btn waves-effect waves-light red lighten-1 btn z-depth-1 col s2" onclick="loadItems()"><i class="material-icons">search</i></button>
-	</div>
-	<div class="">	
-		<button class="btn waves-effect waves-light red lighten-1 btn z-depth-1 col s2" onclick="clearSearch()"><i class="material-icons">close</i></button>
-	</div>
-</div>-->
 
 <!-- Filters -->
 <div id="categoryFilter" style="display: none;" class='filter-ui'></div>
@@ -58,9 +39,8 @@
 <div id="searchbar" style="display: none;" class="input-field">
 	<table id="searchBarTable"><tbody><tr>
 	<td><input id="searchTerm" type="text"></td>
-	<td style="width: 10px;"><button class="waves-effect waves-light btn z-depth-2" onClick="update();"><i class="material-icons">search</i></button></td>
-	</table></tbody></tr>
-	</tbody>
+	<td style="width: 10px;"><button id="searchButton" class="waves-effect waves-light btn z-depth-2" onClick="update();"><i class="material-icons">search</i></button></td>
+	</tr></tbody></table>
 </div>
 
 <!-- MAPBOX -->
