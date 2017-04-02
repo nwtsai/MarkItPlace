@@ -235,7 +235,7 @@ function searchText(title, description) {
 	if (patterm == "") {
 		return true;
 	}
-	patterm = "/("+patterm.split(" ").join("|")+")/im";
+	//patterm="/("+patterm.split(" ").join("|")+")/im";
 	return title.search(patterm) > -1 || description.search(patterm) > -1;
 }
 
@@ -243,14 +243,17 @@ function searchText(title, description) {
 function setCheckboxFormat() { $('input').addClass('filled-in checkbox-default'); }
 
 // Create a marker with the specified details, and add it to the current JSON Object
-function createMarker(userName, location, title, price, description, category, contactType, contactInformation) {
+function createMarker(userName, location, title, price, description, category, contactType, contactInformation, imageID) {
   // Find latitude, longitude from the given address
   var geocoder = new google.maps.Geocoder();
+  if (contactType == "facebook") {
+    contactInformation = "<a href='https://www.messenger.com/t/" + contactInformation + "' target='_blank'>" + contactInformation + "</a>"; 
+  }
   geocoder.geocode( { 'address': location}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       var latitude = results[0].geometry.location.lat();
       var longitude = results[0].geometry.location.lng();
-	  
+      
       markers.features.push(
       {
         type: 'Feature',  
@@ -260,10 +263,8 @@ function createMarker(userName, location, title, price, description, category, c
         },
         properties: {
           title: '<div style="font-family: Roboto; font-size: 20px;"><b>' + title + '</b></div><span style="color: green;"><div style="margin-top: 7px; font-family: Roboto; font-size: 16px;">$' + price + '</div></span>',
-          description: '<span style="color: #726363;"><div style="margin-top: 1px; font-family: Roboto; font-size: 12px">' + description + '<br>Seller: ' + userName + " (" + contactInformation + ')</div></span>',
-          plainTextTitle: title,
-		  plainTextDescription: description,
-		  'category': category,
+          description: '<span style="color: #726363;"><div style="margin-top: 1px; font-family: Roboto; font-size: 12px">' + description + '<br>Seller: ' + userName + " (" + contactInformation + ')</div></span><br><img src="http://res.cloudinary.com/markitplace/image/upload/'+imageID+'" width="100px" height="auto">',
+          'category': category,
           'price': price,
           'color': categories[category].color,
           'marker-color': categories[category].marker_color,
