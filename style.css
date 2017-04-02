@@ -59,6 +59,10 @@
   position: absolute;
 }
 
+#searchbar {
+	padding: 60px 20px 0px 20px;
+}
+
 /* DESKTOP */
 @media only screen and (min-width: 1000px)
 {
@@ -120,6 +124,10 @@
     left: 14px;
     top: 10px;
     position: absolute;
+  }
+  
+  #searchbar {
+  	padding: 0px 20px 0px 20px;
   }
 }
 
@@ -277,7 +285,7 @@ body {
 .myHeader {
   color: #726363;
 }
-
+/*
 #searchbar {
   position: absolute;
   z-index: 100;
@@ -285,4 +293,4 @@ body {
   right: 0px;
   top: 49px;
   width: 500px;
-}
+}*/
