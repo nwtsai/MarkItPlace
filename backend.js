@@ -1,107 +1,167 @@
 /*
-MarkItPlace
+Markitplace
 backend.js
 
 Kevin Hsieh
-1 April 2017
-LA Hacks 2017
+22 April 2017
 
-Required from front-end:
-- Include https://apis.google.com/js/client.js?onload=checkAuth"
-- Include a function onAuth()
+Front end must import these scripts before importing this file:
+	https://sdk.amazonaws.com/js/aws-sdk-2.2.18.min.js
+	https://connect.facebook.net/en_US/all.js"
+
+Front end should provide the following before importing this file:
+	function async_onload()
+		Calls login silently, updates the webpage accordingly, then calls 
+		scan_wrapper.
+	function login_wrapper()
+		Calls login, updates the webpage accordingly, then calls scan_wrapper.
+	function scan_wrapper()
+		Calls scan and updates the webpage accordingly.
+	function put_wrapper()
+		Calls put, then scan_wrapper.
+	function deleteItem_wrapper()
+		Calls deleteItem, then scan_wrapper.
+
+Interface:
+	function login(callback, silent)
+		Logs the user in using Facebook and calls callback() upon success.
+		If silent, then gives up if user is not already connected. Populates 
+		global variables fb_userId, fb_name, and fb_pfp.
+	function scan(callback) 
+		Reads all entries in the database and calls callback(response) upon 
+		success, where response is an array of JavaScript objects representing 
+		items on sale.
+	function makeItem(title, category, description, image, location, price)
+		Returns a JavaScript object suitable for use as an argument to put.
+	function put(item, callback)
+		Adds item to the database and calls callback() upon success.
+	function deleteItem(title, callback)
+		Deletes from the database the item with the specified title and 
+		belonging to the current user, if it exists, and calls callback() upon 
+		success, or if the item does not exist.
 */
 
 // -----------------------------------------------------------------------------
-// GOOGLE API AUTHORIZATION
+// GLOBALS
 // -----------------------------------------------------------------------------
 
-const CLIENT_ID = "127586888994-75ecbcuv81qd8g4i3480tt512b7iulhe.apps.googleusercontent.com";
-const SCOPES = ["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/spreadsheets"];
+var fb_appId = "147787075756148", fb_userId, fb_name, fb_pfp;
+var roleArn = "arn:aws:iam::666164367628:role/markitplace_auth_MOBILEHUB_1457118861";
 
-// Check if current user has authorized this application.
-function checkAuth() {
-	gapi.auth.authorize({
-		client_id: CLIENT_ID,
-		scope: SCOPES,
-		immediate: true,
-		authuser: 1
-	}, handleAuthResult);
+// -----------------------------------------------------------------------------
+// FUNCTIONS
+// -----------------------------------------------------------------------------
+
+function login(callback, silent) {
+	FB.getLoginStatus(function (response) {
+		if (response.status == "connected")
+			load_profile(response.authResponse, callback);
+		else if (!silent)
+			FB.login(function (response) { 
+				if (response.authResponse)
+					load_profile(response.authResponse, callback);
+				else {
+					console.log(response);
+					alert("Error: Facebook login failed.");
+				}
+			});
+	});
 }
 
-// Initiate auth flow in response to user clicking authorize button.
-function handleAuthClick() {
-	gapi.auth.authorize({
-		client_id: CLIENT_ID,
-		scope: SCOPES, 
-		immediate: false,
-		authuser: -1
-	}, handleAuthResult);
+function scan(callback) {
+	let db = new AWS.DynamoDB.DocumentClient({
+		service: new AWS.DynamoDB({region: "us-west-1"})
+	});
+	let params = {
+		TableName: "markitplace-mobilehub-1457118861-catalog"
+	};
+	db.scan(params, function (error, response) {
+		if (error) {
+			console.log(error);
+			alert("Error: scan() failed.");
+		}
+		else
+			callback(response.Items);
+	});
 }
 
-// Call a function on successful authentication.
-function handleAuthResult(response) {
-	if (response && !response.error)
-		onAuth();
+function makeItem(title, category, description, image, location, price) {
+	return {
+		userId: fb_userId,
+		title: title,
+		category: category,
+		description: description,
+		image: image,
+		location: location,
+		price: price,
+		seller: fb_name
+	}
+}
+
+function put(item, callback) {
+	let db = new AWS.DynamoDB.DocumentClient({
+		service: new AWS.DynamoDB({region: "us-west-1"})
+	});
+	let params = {
+		TableName: "markitplace-mobilehub-1457118861-catalog",
+		Item: item
+	};
+	db.put(params, function (error, response) {
+		if (error) {
+			console.log(error);
+			alert("Error: put() failed.");
+		}
+		else
+			callback();
+	});
+}
+
+function deleteItem(title, callback) {
+	let db = new AWS.DynamoDB.DocumentClient({
+		service: new AWS.DynamoDB({region: "us-west-1"})
+	});
+	let params = {
+		TableName: "markitplace-mobilehub-1457118861-catalog",
+		Key: {
+			userId: fb_userId,
+			title: title
+		}
+	};
+	db.delete(params, function (error, response) {
+		if (error) {
+			console.log(error);
+			alert("Error: delete() failed.");
+		}
+		else
+			callback();
+	});
 }
 
 // -----------------------------------------------------------------------------
-// BACKEND INTERFACE
+// HELPERS
 // -----------------------------------------------------------------------------
 
-const scriptId = "Mp2ZVT-Mdv0w0H3VnXtfCmouI75eCkdR7";
+window.fbAsyncInit = function () {
+	FB.init({appId: fb_appId});
+	if (async_onload) async_onload();
+};
 
-// response is an object.
-function userinfo(onSuccess) {
-	let op = gapi.client.request({
-		root: "https://www.googleapis.com",
-		path: "oauth2/v1/userinfo",
-		method: "GET"
+function load_profile(authResponse, callback) {
+	AWS.config.credentials = new AWS.WebIdentityCredentials({
+		RoleArn: roleArn,
+		ProviderId: "graph.facebook.com",
+		WebIdentityToken: authResponse.accessToken
 	});
-	op.execute(function onReturn(response) {
-		onSuccess(response);
-	});
-}
-
-function call(func, params, onSuccess) {
-	let op = gapi.client.request({
-		root: "https://script.googleapis.com",
-		path: "v1/scripts/" + scriptId + ":run",
-		method: "POST",
-		body: {
-			"function": func,
-			"parameters": params
+	fb_userId = authResponse.userID;
+	FB.api(fb_userId, function (response) {
+		if (response && !response.error) {
+			fb_name = response.name;
+			FB.api(fb_userId + "/picture", function (response) {
+				if (response && !response.error) {
+					fb_pfp = response.data.url;
+					callback();
+				}
+			});
 		}
 	});
-	op.execute(function onReturn(response) {
-		if (response.error && response.error.status) {
-			// Encountered a problem before the script started executing.
-			console.log("Error calling API: "
-				+ JSON.stringify(response, null, 2));
-			alert("Error calling API! "
-				+ "Did you authenticate using a g.ucla.edu account?");
-		}
-		else if (response.error) {
-			// The API executed, but the script returned an error.
-			console.log("Script error! Message: " 
-				+ response.error.details[0].errorMessage);
-			alert("Script error!");
-		}
-		else 
-			onSuccess(response.response.result);
-	});
-}
-
-// response is a 2-D array.
-function getValues(onSuccess) {
-	call("getValues", [], onSuccess);
-}
-
-// response is true if successful, false otherwise.
-function appendRow(userId, row, onSuccess) {
-	call("appendRow", [userId, row], onSuccess);
-}
-
-// response is true if successful, false otherwise.
-function deleteRow(userId, num, onSuccess) {
-	call("deleteRow", [userId, parseInt(num) + 1], onSuccess);
 }

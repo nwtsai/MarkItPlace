@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<!--
+Markitplace
+backend_tester.html
+
+Kevin Hsieh
+27 April 2017
+-->
+<head>
+<title>Markitplace Backend Tester</title>
+<script type="text/javascript">
+function async_onload() { login(uponLogin, true);}
+function login_wrapper() { login(uponLogin);}
+function uponLogin() {
+	document.getElementById("pfp").src = fb_pfp;
+	document.getElementById("name").innerHTML = fb_name;
+	scan_wrapper();
+}
+
+function scan_wrapper() { scan(function (response) {
+	document.getElementById("output").innerHTML = "";
+	for (let item of response)
+		document.getElementById("output").innerHTML +=
+			"<button onclick='deleteItem_wrapper(\"" + item.title 
+			+ "\")'>Delete</button> " + 
+			JSON.stringify(item, null, 1) + "<br>";
+});}
+
+function put_wrapper() {
+	put(makeItem(
+		document.getElementById("title").value,
+		document.getElementById("category").value,
+		document.getElementById("description").value,
+		document.getElementById("image").value,
+		document.getElementById("location").value,
+		document.getElementById("price").value
+	), scan_wrapper);
+}
+
+function deleteItem_wrapper(title) {
+	deleteItem(title, scan_wrapper);
+}
+</script>
+<script type="text/javascript" src="https://sdk.amazonaws.com/js/aws-sdk-2.2.18.min.js"></script>
+<script type="text/javascript" src="https://connect.facebook.net/en_US/all.js"></script>
+<script type="text/javascript" src="backend.js"></script>
+</head>
+<body>
+	<h1>Markitplace Backend Tester</h1>
+	<h2>Actions</h2>
+	<img id="pfp" /> <span id="name">Not Logged In</span>
+	<br><br>
+	<button onclick="login_wrapper()">Login</button>
+	<button onclick="scan_wrapper()">Scan</button>
+	<button onclick="put_wrapper()">Put</button>
+	<br><br>
+	<input id="title" placeholder="Title" />
+	<input id="category" placeholder="Category" />
+	<input id="description" placeholder="Description" />
+	<br>
+	<input id="image" placeholder="Image" />
+	<input id="location" placeholder="Location" />
+	<input id="price" placeholder="Price" />
+	<h2>Output</h2>
+	<div id="output"></div>
+</body>
+</html>
