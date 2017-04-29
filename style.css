@@ -84,13 +84,6 @@ LA Hacks
 ------------------------------------------------------------------------------*/
 
 @media only screen and (min-width: 600px) {
-	#burger {
-		position: absolute;
-		top: 17px;
-		right: 20px;
-		height: 40px;
-	}
-
 	.filter-ui {
 		background:#fff;
 		position:absolute;
@@ -177,6 +170,13 @@ nav {
 body { 
 	margin:0; 
 	padding:0; 
+}
+
+#burger {
+	position: absolute;
+	top: 17px;
+	right: 20px;
+	height: 40px;
 }
 	
 .brand-logo {
