@@ -149,6 +149,27 @@ function deleteItem_wrapper(title) {
 
 // Initializations
 window.onload = function() {
+	// Update burger color initially and whenever the window resizes
+	function updateFloatingMargins() {
+		if ($(window).width() < 775)
+		{
+			$("#floating-buttons").css("margin-right", "-30px");
+			$("#floating-buttons").css("top", "-2px");
+			$("#filterButton1Background").css("margin-left", "-8px");
+			$("#filterButton2Background").css("margin-left", "-8px");
+			$("#filterButton3Background").css("margin-left", "-8px");
+		}
+		else
+		{
+			$("#floating-buttons").css("margin-right", "-20px");
+			$("#floating-buttons").css("top", "0px");
+			$("#filterButton1Background").css("margin-left", "-3px");
+			$("#filterButton2Background").css("margin-left", "-3px");
+			$("#filterButton3Background").css("margin-left", "-3px");
+		}
+	}
+	updateFloatingMargins();
+	$(window).resize(function () { updateFloatingMargins(); });
 	// Load the checkbox filter menus
 	loadCheckboxes("categoryFilter", "category");
 	loadCheckboxes("priceFilter", "price");
