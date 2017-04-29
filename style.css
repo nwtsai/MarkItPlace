@@ -11,7 +11,7 @@ LA Hacks
    MOBILE 
 ------------------------------------------------------------------------------*/
 
-#burger {
+/*#burger {
 	position: absolute;
 	top: 80px;
 	right: 15px;
@@ -26,7 +26,7 @@ LA Hacks
 	z-index: 100;
 	padding: 10px;
 	border-radius: 3px;
-}
+}*/
 
 #userProfilePicture {
 	display: none;
@@ -61,13 +61,13 @@ LA Hacks
 	z-index: 10;
 }
 
-#filterButton1Background, #filterButton2Background, #filterButton3Background {
+/*#filterButton1Background, #filterButton2Background, #filterButton3Background {
 	background-color: #726363;
 }
 
 #filterButton1Icon, #filterButton2Icon, #filterButton3Icon {
 	color: #f7f5f5;
-}
+}*/
 
 #logo {
 	left: 10px;
