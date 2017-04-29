@@ -28,6 +28,10 @@ LA Hacks
 	border-radius: 3px;
 }
 
+#floating-buttons {
+	top: -2px;
+}
+
 #userProfilePicture {
 	display: none;
 }
@@ -92,6 +96,10 @@ LA Hacks
 		z-index:100;
 		padding:10px;
 		border-radius:3px;
+	}
+
+	#floating-buttons {
+		top: 0px;
 	}
 
 	#userProfilePicture {

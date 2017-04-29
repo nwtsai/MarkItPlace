@@ -154,7 +154,6 @@ window.onload = function() {
 		if ($(window).width() < 1334)
 		{
 			$("#floating-buttons").css("margin-right", "-30px");
-			$("#floating-buttons").css("top", "-2px");
 			$("#filterButton1Background").css("margin-left", "-8px");
 			$("#filterButton2Background").css("margin-left", "-8px");
 			$("#filterButton3Background").css("margin-left", "-8px");
@@ -162,7 +161,6 @@ window.onload = function() {
 		else
 		{
 			$("#floating-buttons").css("margin-right", "-20px");
-			$("#floating-buttons").css("top", "0px");
 			$("#filterButton1Background").css("margin-left", "-3px");
 			$("#filterButton2Background").css("margin-left", "-3px");
 			$("#filterButton3Background").css("margin-left", "-3px");
