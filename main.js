@@ -151,7 +151,7 @@ function deleteItem_wrapper(title) {
 window.onload = function() {
 	// Update burger color initially and whenever the window resizes
 	function updateFloatingMargins() {
-		if ($(window).width() < 775)
+		if ($(window).width() < 1334)
 		{
 			$("#floating-buttons").css("margin-right", "-30px");
 			$("#floating-buttons").css("top", "-2px");
