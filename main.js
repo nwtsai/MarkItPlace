@@ -300,11 +300,13 @@ function toggleForm() {
 	let form = document.getElementById("listItForm");
 	let button = document.getElementById("ListItButton");
 	if (map.style.display == "none") {
+		$("#burger").show();
 		map.style.display = "";
 		form.style.display = "none";
 		button.style.display = "";
 	}
 	else {
+		$("#burger").hide();
 		map.style.display = "none";
 		form.style.display = "";
 		button.style.display = "none";
