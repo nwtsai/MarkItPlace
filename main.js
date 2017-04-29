@@ -169,7 +169,7 @@ window.onload = function() {
 
 	// Toggle global variable representing if currently mobile
 	function updateIsMobile() {
-		if ($(window).width() <= 600)
+		if ($(window).width() < 600)
 			isMobile = true;
 		else 
 			isMobile = false;
@@ -385,12 +385,15 @@ function toggleForm() {
 	let map = document.getElementById("map-leaflet");
 	let form = document.getElementById("listItForm");
 	let button = document.getElementById("ListItButton");
+	let profilePicture = document.getElementById("userProfilePicture");
 	if (map.style.display == "none") {
 		$("#burger").show();
 		showActiveFilter();
 		map.style.display = "";
 		form.style.display = "none";
 		button.style.display = "";
+		if (isMobile == true)
+			profilePicture.style.display = "none";
 	}
 	else {
 		$("#burger").hide();
@@ -398,6 +401,8 @@ function toggleForm() {
 		map.style.display = "none";
 		form.style.display = "";
 		button.style.display = "none";
+		if (isMobile == true)
+			profilePicture.style.display = "";
 	}
 }
 

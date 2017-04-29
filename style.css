@@ -38,7 +38,7 @@ LA Hacks
 
 #userProfilePicture {
 	display: block;
-	left: 15px;
+	right: 15px;
 	top: 9px;
 	position: absolute;
 	width: 38px;
@@ -73,12 +73,12 @@ LA Hacks
 	z-index: 10;
 }
 
-/*#logo {
+#logo {
 	left: 7px;
 	top: 0px;
 	position: absolute;
 	width: 57px;
-}*/
+}
 
 #searchbar {
 	padding: 60px 20px 0px 20px;
@@ -155,6 +155,13 @@ LA Hacks
 		padding: 15px 15px 25px 15px;
 		z-index: 10;
 	}
+
+	#logo {
+		left: 12px;
+		top: 7px;
+		position: absolute;
+		width: 50px;
+	}
 	
 	#searchbar {
 		padding: 0px 20px 0px 20px;
@@ -172,13 +179,6 @@ nav {
 body { 
 	margin:0; 
 	padding:0; 
-}
-
-#logo {
-	left: 12px;
-	top: 7px;
-	position: absolute;
-	width: 50px;
 }
 
 #filterButton1Background, #filterButton2Background, #filterButton3Background {
