@@ -147,17 +147,8 @@ function deleteItem_wrapper(title) {
 // FRONT END FUNCTIONS
 // -----------------------------------------------------------------------------
 
+// Initializations
 window.onload = function() {
-	// Update burger color initially and whenever the window resizes
-	/*function updateBurgerColor() {
-		if ($(window).width() < 600)
-			$("#nav-icon1 span").css("background", "#726363");
-		else
-			$("#nav-icon1 span").css("background", "#f7f5f5");
-	}
-	updateBurgerColor();
-	$(window).resize(function () { updateBurgerColor(); });*/
-
 	// Load the checkbox filter menus
 	loadCheckboxes("categoryFilter", "category");
 	loadCheckboxes("priceFilter", "price");
@@ -295,6 +286,7 @@ function hideFilterLists() {
 	searchbar.style.display = "none"
 }
 
+// Toggle some elements whenever list it or back to map is pressed
 function toggleForm() {
 	let map = document.getElementById("map-leaflet");
 	let form = document.getElementById("listItForm");
@@ -313,6 +305,7 @@ function toggleForm() {
 	}
 }
 
+// Clear the search bar
 function clearSearch() {
 	document.getElementById("searchTerm").value = "";
 	loadItems();
