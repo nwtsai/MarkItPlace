@@ -125,9 +125,10 @@ function scan_wrapper() { scan(function (response) {
 	for (let item of response) {
 		if (item.userId == fb_userId)
 			document.getElementById("myListings").innerHTML +=
-				"<button onclick='deleteItem_wrapper(\"" + item.title 
-				+ "\")'>Delete</button> " + item.title + " ($" + item.price 
-				+ ")<br>";
+				"<a class='btn-flat btn-large waves-effect waves-teal'" 
+				+ " onclick='deleteItem_wrapper(\"" + item.title 
+				+ "\")'><i class='material-icons'>delete</i></a> " + item.title 
+				+ " ($" + item.price + ")<br>";
 		let beforeParse = item.location.split(";");
 		let availabilities = [];
 		for (let availability of beforeParse)
