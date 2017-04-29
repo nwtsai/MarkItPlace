@@ -13,9 +13,13 @@ LA Hacks
 
 #burger {
 	position: absolute;
-	top: 13px;
+	top: 15px;
 	right: 20px;
 	height: 40px;
+}
+
+#floating-buttons {
+	top: -2px;
 }
 
 .filter-ui {
@@ -81,6 +85,10 @@ LA Hacks
 		top: 17px;
 		right: 20px;
 		height: 40px;
+	}
+
+	#floating-buttons {
+		top: 0px;
 	}
 
 	.filter-ui {
@@ -202,10 +210,6 @@ body {
 #availabilityButton {
 	margin-bottom: 30px;
 	background-color: #5ecacd;
-}
-
-#floating-buttons {
-	top: 0px;
 }
 
 #authorize-button {
