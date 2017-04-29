@@ -74,6 +74,7 @@ var categoryFilter;
 var priceFilter;
 var searchBar;
 var markitplace;
+var mobileProfilePicture;
 
 // Flags
 var activeFilter = "";
@@ -111,7 +112,8 @@ function async_onload() { login(uponLogin, true);}
 function login_wrapper() { login(uponLogin);}
 function uponLogin() {
 	$("#userName").text(fb_name);
-	$("#userProfilePicture").attr("src", fb_pfp);
+	$("#mobileUserProfilePicture").attr("src", fb_pfp);
+	$("#desktopUserProfilePicture").attr("src", fb_pfp);
 	scan_wrapper();
 }
 
@@ -166,6 +168,7 @@ window.onload = function() {
 	priceFilter = document.getElementById("priceFilter");
 	searchBar = document.getElementById("searchbar");
 	markitplace = document.getElementById("markitplace");
+	mobileProfilePicture = document.getElementById("mobileUserProfilePicture");
 
 	// Toggle global variable representing if currently mobile
 	function updateIsMobile() {
@@ -385,15 +388,19 @@ function toggleForm() {
 	let map = document.getElementById("map-leaflet");
 	let form = document.getElementById("listItForm");
 	let button = document.getElementById("ListItButton");
-	let profilePicture = document.getElementById("userProfilePicture");
 	if (map.style.display == "none") {
 		$("#burger").show();
 		showActiveFilter();
 		map.style.display = "";
 		form.style.display = "none";
 		button.style.display = "";
-		if (isMobile == true)
-			profilePicture.style.display = "none";
+		if (isMobile == true) {
+			mobileProfilePicture.style.display = "none";
+			if (isBurgerActive == true) 
+				markitplace.style.display = "none";
+			else
+				markitplace.style.display = "";
+		}
 	}
 	else {
 		$("#burger").hide();
@@ -401,8 +408,9 @@ function toggleForm() {
 		map.style.display = "none";
 		form.style.display = "";
 		button.style.display = "none";
-		if (isMobile == true)
-			profilePicture.style.display = "";
+		markitplace.style.display = "";
+		if (isMobile == true) 
+			mobileProfilePicture.style.display = "";
 	}
 }
 
