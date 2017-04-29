@@ -18,10 +18,6 @@ LA Hacks
 	height: 40px;
 }
 
-#welcome {
-	display: none;
-}
-
 .filter-ui {
 	background: #fff;
 	position: absolute;
@@ -30,6 +26,14 @@ LA Hacks
 	z-index: 100;
 	padding: 10px;
 	border-radius: 3px;
+}
+
+#userProfilePicture {
+	display: none;
+}
+
+#userName {
+	display: none;
 }
 
 #map-leaflet {
@@ -97,17 +101,29 @@ LA Hacks
 		border-radius:3px;
 	}
 
-	#welcome {
-		display: inline;
-	}
-
 	#userProfilePicture {
-		margin-top: -7px;
+		display: block;
+		left: 75px;
+		top: 15px;
+		position: absolute;
 	}
 
 	#userName {
-		margin-top: -7px;
-		margin-left: 7px;
+		display: block;
+		left: 120px;
+		position: absolute;
+		color: #f7f5f5; 
+		z-index: 100;
+		font-family: "Roboto";
+	}
+
+	#userName:hover {
+		left: 120px;
+		position: absolute;
+		color: #f7f5f5; 
+		z-index: 100;
+		font-family: "Roboto";
+		text-decoration: underline;
 	}
 
 	#map-leaflet {
@@ -170,15 +186,6 @@ body {
 .brand-logo:hover {
 	font-family: "Fugaz One";
 	text-decoration: underline;
-}
-
-#welcome {
-	position: absolute;
-	top: 22px;
-	left: 68px;
-	color: #f7f5f5; 
-	z-index: 100;
-	font-family: "Roboto";
 }
 
 .checkbox-default[type="checkbox"].filled-in:checked + label:after {

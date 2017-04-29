@@ -99,10 +99,8 @@ var intervalID;
 function async_onload() { login(uponLogin, true);}
 function login_wrapper() { login(uponLogin);}
 function uponLogin() {
-	//document.getElementById("userName").innerHTML = fb_name;
 	$("#userName").text(fb_name);
-	var pfp_src = fb_pfp;
-	$("#userProfilePicture").attr("src", pfp_src);
+	$("#userProfilePicture").attr("src", fb_pfp);
 	scan_wrapper();
 }
 
@@ -110,8 +108,6 @@ function scan_wrapper() { scan(function (response) {
 	$("#authorize").hide();
 	if (!intervalID)
 		intervalID = setInterval(scan_wrapper, 10000);
-	let welcomeText = document.getElementById("welcome");
-	welcomeText.style.display = "";
 	markers = {features: []};
 	let output = "";
 	document.getElementById("myListings").innerHTML = "";
