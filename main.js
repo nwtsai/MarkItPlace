@@ -172,7 +172,7 @@ window.onload = function() {
 
 	// Toggle global variable representing if currently mobile
 	function updateIsMobile() {
-		if ($(window).width() < 600)
+		if ($(window).width() <= 600)
 			isMobile = true;
 		else 
 			isMobile = false;

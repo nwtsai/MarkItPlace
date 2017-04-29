@@ -11,6 +11,10 @@ LA Hacks
    MOBILE 
 ------------------------------------------------------------------------------*/
 
+nav {
+	height: 57px;
+}
+
 #burger {
 	position: absolute;
 	top: 14px;
@@ -34,10 +38,6 @@ LA Hacks
 
 #markitplace {
 	top: 2px;
-}
-
-#userName {
-	display: none;
 }
 
 #map-leaflet {
@@ -81,6 +81,10 @@ LA Hacks
 ------------------------------------------------------------------------------*/
 
 @media only screen and (min-width: 600px) {
+	nav {
+		height: 65px;
+	}
+
 	#burger {
 		position: absolute;
 		top: 17px;
@@ -103,16 +107,7 @@ LA Hacks
 	}
 
 	#markitplace {
-		top: 0px;
-	}
-
-	#userName {
-		display: block;
-		left: 115px;
-		position: absolute;
-		color: #f7f5f5; 
-		z-index: 100;
-		font-family: "Roboto";
+		top: 1px;
 	}
 
 	#map-leaflet {
@@ -180,6 +175,15 @@ body {
 .brand-logo:hover {
 	font-family: "Fugaz One";
 	text-decoration: underline;
+}
+
+#userName {
+	display: block;
+	left: 115px;
+	position: absolute;
+	color: #f7f5f5; 
+	z-index: 100;
+	font-family: "Roboto";
 }
 
 #mobileUserProfilePicture {
