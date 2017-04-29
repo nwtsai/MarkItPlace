@@ -13,7 +13,7 @@ LA Hacks
 
 #burger {
 	position: absolute;
-	top: 15px;
+	top: 13px;
 	right: 20px;
 	height: 40px;
 }
@@ -60,14 +60,6 @@ LA Hacks
 	padding: 15px 15px 25px 15px;
 	z-index: 10;
 }
-
-/*#filterButton1Background, #filterButton2Background, #filterButton3Background {
-	background-color: #726363;
-}
-
-#filterButton1Icon, #filterButton2Icon, #filterButton3Icon {
-	color: #f7f5f5;
-}*/
 
 #logo {
 	left: 10px;
