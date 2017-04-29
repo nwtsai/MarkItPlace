@@ -99,7 +99,10 @@ var intervalID;
 function async_onload() { login(uponLogin, true);}
 function login_wrapper() { login(uponLogin);}
 function uponLogin() {
-	document.getElementById("userName").innerHTML = fb_name;
+	//document.getElementById("userName").innerHTML = fb_name;
+	$("#userName").text(fb_name);
+	var pfp_src = fb_pfp;
+	$("#userProfilePicture").attr("src", pfp_src);
 	scan_wrapper();
 }
 
@@ -217,11 +220,11 @@ function update() {
 
 // Search description and title for words
 function searchText(title, description) {
-	let patterm = document.getElementById("searchTerm").value.trim().toLowerCase();
-	if (patterm == "")
+	let pattern = document.getElementById("searchTerm").value.trim().toLowerCase();
+	if (pattern == "")
 		return true;
-	return title.toLowerCase().search(patterm) > -1 
-		|| description.toLowerCase().search(patterm) > -1;
+	return title.toLowerCase().search(pattern) > -1 
+		|| description.toLowerCase().search(pattern) > -1;
 }
 
 // Create a marker with the specified details, and add it to the current JSON Object

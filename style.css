@@ -98,7 +98,16 @@ LA Hacks
 	}
 
 	#welcome {
-		display: block;
+		display: inline;
+	}
+
+	#userProfilePicture {
+		margin-top: -7px;
+	}
+
+	#userName {
+		margin-top: -7px;
+		margin-left: 7px;
 	}
 
 	#map-leaflet {
