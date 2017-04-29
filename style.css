@@ -131,15 +131,6 @@ LA Hacks
 		font-family: "Roboto";
 	}
 
-	#userName:hover {
-		left: 115px;
-		position: absolute;
-		color: #f7f5f5; 
-		z-index: 100;
-		font-family: "Roboto";
-		text-decoration: underline;
-	}
-
 	#map-leaflet {
 		width: 100%;
 		height: calc(100vh - 65px);
