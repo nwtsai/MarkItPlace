@@ -33,7 +33,11 @@ LA Hacks
 }
 
 #userProfilePicture {
-	display: none;
+	display: block;
+	left: 68px;
+	top: 9px;
+	position: absolute;
+	width: 38px;
 }
 
 #userName {
@@ -104,14 +108,15 @@ LA Hacks
 
 	#userProfilePicture {
 		display: block;
-		left: 75px;
+		left: 70px;
 		top: 15px;
+		width: 35px;
 		position: absolute;
 	}
 
 	#userName {
 		display: block;
-		left: 120px;
+		left: 115px;
 		position: absolute;
 		color: #f7f5f5; 
 		z-index: 100;
@@ -119,7 +124,7 @@ LA Hacks
 	}
 
 	#userName:hover {
-		left: 120px;
+		left: 115px;
 		position: absolute;
 		color: #f7f5f5; 
 		z-index: 100;
