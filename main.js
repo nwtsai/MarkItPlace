@@ -328,6 +328,8 @@ function createMarker(userName, location, title, price, description, category,
 // The burger button is pressed
 function burgerButtonPressed() {
 	isBurgerActive = !isBurgerActive;
+	if (isBurgerActive == false)
+		activeFilter = "";
 	if (isMobile == true) {
 		if (isBurgerActive == true)
 			markitplace.style.display = "none";
