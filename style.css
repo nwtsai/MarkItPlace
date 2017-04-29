@@ -69,6 +69,7 @@ LA Hacks
 	left: 10px;
 	top: 4px;
 	position: absolute;
+	width: 60px;
 }
 
 #searchbar {
@@ -155,6 +156,7 @@ LA Hacks
 		left: 14px;
 		top: 10px;
 		position: absolute;
+		width: 45px;
 	}
 	
 	#searchbar {
