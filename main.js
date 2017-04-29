@@ -227,7 +227,7 @@ function searchText(title, description) {
 // Create a marker with the specified details, and add it to the current JSON Object
 function createMarker(userName, location, title, price, description, category, 
 	contactType, contactInfo, imageID) {
-	let contactInformation = "<a href='https://www.messenger.com/t/" 
+	let contactInformation = "<a href='https://www.facebook.com/" 
 		+ contactInfo + "' target='_blank'>" + userName + "</a>"; 
 	let latlng = location.split(',');
 	markers.features.push(
