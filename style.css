@@ -167,6 +167,11 @@ body {
 	font-family: "Fugaz One";
 }
 
+.brand-logo:hover {
+	font-family: "Fugaz One";
+	text-decoration: underline;
+}
+
 #welcome {
 	position: absolute;
 	top: 22px;
