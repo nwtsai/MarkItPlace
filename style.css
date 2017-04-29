@@ -11,12 +11,12 @@ LA Hacks
    MOBILE 
 ------------------------------------------------------------------------------*/
 
-/*#burger {
+#burger {
 	position: absolute;
-	top: 80px;
-	right: 15px;
+	top: 15px;
+	right: 20px;
 	height: 40px;
-}*/
+}
 
 .filter-ui {
 	background: #fff;
@@ -84,6 +84,13 @@ LA Hacks
 ------------------------------------------------------------------------------*/
 
 @media only screen and (min-width: 600px) {
+	#burger {
+		position: absolute;
+		top: 17px;
+		right: 20px;
+		height: 40px;
+	}
+
 	.filter-ui {
 		background:#fff;
 		position:absolute;
@@ -162,13 +169,6 @@ nav {
 body { 
 	margin:0; 
 	padding:0; 
-}
-
-#burger {
-	position: absolute;
-	top: 17px;
-	right: 20px;
-	height: 40px;
 }
 
 #filterButton1Background, #filterButton2Background, #filterButton3Background {
