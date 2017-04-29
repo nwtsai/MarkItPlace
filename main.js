@@ -69,6 +69,11 @@ var checkboxes = {
 	"price": []
 }
 
+var categoryFilter;
+var priceFilter;
+var searchBar;
+var activeFilter;
+
 var priceranges = [
 	[0, 10],
 	[10, 25],
@@ -149,6 +154,11 @@ function deleteItem_wrapper(title) {
 
 // Initializations
 window.onload = function() {
+	// Initialize global elements
+	categoryFilter = document.getElementById("categoryFilter");
+	priceFilter = document.getElementById("priceFilter");
+	searchBar = document.getElementById("searchbar");
+	
 	// Update burger color initially and whenever the window resizes
 	function updateFloatingMargins() {
 		if ($(window).width() < 1334)
@@ -278,24 +288,36 @@ function createMarker(userName, location, title, price, description, category,
 
 // A filter button is pressed
 function filterButtonPressed(filter_type) {
-	let categoryFilter = document.getElementById("categoryFilter");
-	let priceFilter = document.getElementById("priceFilter");
-	let searchBar = document.getElementById("searchbar");
 	if (filter_type == "category") {
+		activeFilter = "category";
 		categoryFilter.style.display = "";
 		priceFilter.style.display = "none";
-		searchbar.style.display = "none"
+		searchbar.style.display = "none";
 	} 
 	else if (filter_type == "price") {
+		activeFilter = "price";
 		categoryFilter.style.display = "none";
 		priceFilter.style.display = "";
 		searchbar.style.display = "none"
 	} 
 	else if (filter_type == "search") {
+		activeFilter = "search";
 		categoryFilter.style.display = "none";
 		priceFilter.style.display = "none";
 		searchbar.style.display = "";
 	}
+}
+
+// Show the active filter again
+function showActiveFilter() {
+	if (activeFilter == "category")
+		categoryFilter.style.display = "";
+	else if (activeFilter == "price")
+		priceFilter.style.display = "";
+	else if (activeFilter == "search")
+		searchbar.style.display == "";
+	else
+		hideFilterLists();
 }
 
 // Hide the filter checkbox lists
@@ -312,12 +334,14 @@ function toggleForm() {
 	let button = document.getElementById("ListItButton");
 	if (map.style.display == "none") {
 		$("#burger").show();
+		showActiveFilter();
 		map.style.display = "";
 		form.style.display = "none";
 		button.style.display = "";
 	}
 	else {
 		$("#burger").hide();
+		hideFilterLists();
 		map.style.display = "none";
 		form.style.display = "";
 		button.style.display = "none";
