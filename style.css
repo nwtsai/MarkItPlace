@@ -144,14 +144,6 @@ LA Hacks
 		z-index: 10;
 	}
 
-	#filterButton1Background, #filterButton2Background, #filterButton3Background {
-		background-color: #f7f5f5;
-	}
-
-	#filterButton1Icon, #filterButton2Icon, #filterButton3Icon {
-		color: #726363;
-	}
-
 	#logo {
 		left: 14px;
 		top: 10px;
@@ -177,6 +169,14 @@ body {
 	top: 17px;
 	right: 20px;
 	height: 40px;
+}
+
+#filterButton1Background, #filterButton2Background, #filterButton3Background {
+	background-color: #f7f5f5;
+}
+
+#filterButton1Icon, #filterButton2Icon, #filterButton3Icon {
+	color: #726363;
 }
 	
 .brand-logo {
