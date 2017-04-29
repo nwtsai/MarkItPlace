@@ -66,10 +66,10 @@ LA Hacks
 }
 
 #logo {
-	left: 10px;
-	top: 4px;
+	left: 7px;
+	top: 0px;
 	position: absolute;
-	width: 60px;
+	width: 57px;
 }
 
 #searchbar {
@@ -153,10 +153,10 @@ LA Hacks
 	}
 
 	#logo {
-		left: 14px;
-		top: 10px;
+		left: 12px;
+		top: 7px;
 		position: absolute;
-		width: 45px;
+		width: 50px;
 	}
 	
 	#searchbar {
