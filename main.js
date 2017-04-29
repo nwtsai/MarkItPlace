@@ -69,10 +69,16 @@ var checkboxes = {
 	"price": []
 }
 
+// HTML Elements
 var categoryFilter;
 var priceFilter;
 var searchBar;
-var activeFilter;
+var markitplace;
+
+// Flags
+var activeFilter = "";
+var isMobile = false;
+var isBurgerActive = false;
 
 var priceranges = [
 	[0, 10],
@@ -158,26 +164,55 @@ window.onload = function() {
 	categoryFilter = document.getElementById("categoryFilter");
 	priceFilter = document.getElementById("priceFilter");
 	searchBar = document.getElementById("searchbar");
+	markitplace = document.getElementById("markitplace");
+
+	// Toggle global variable representing if currently mobile
+	function updateIsMobile() {
+		if ($(window).width() <= 600)
+			isMobile = true;
+		else 
+			isMobile = false;
+	}
+
+	// Update whether or not the MarkItPlace title is shown
+	function updateMarkitplace() {
+		if (isMobile == true) {
+			if (isBurgerActive == true)
+				markitplace.style.display = "none";
+			else 
+				markitplace.style.display = "";
+		}
+	}
 	
-	// Update burger color initially and whenever the window resizes
+	// Update floating button margins
 	function updateFloatingMargins() {
-		if ($(window).width() < 1334)
+		if ($(window).width() <= 1334)
 		{
 			$("#floating-buttons").css("margin-right", "-30px");
 			$("#filterButton1Background").css("margin-left", "-8px");
 			$("#filterButton2Background").css("margin-left", "-8px");
 			$("#filterButton3Background").css("margin-left", "-8px");
 		}
-		else
-		{
+		else {
 			$("#floating-buttons").css("margin-right", "-20px");
 			$("#filterButton1Background").css("margin-left", "-3px");
 			$("#filterButton2Background").css("margin-left", "-3px");
 			$("#filterButton3Background").css("margin-left", "-3px");
 		}
 	}
+
+	// Initialize updates
+	updateIsMobile();
+	updateMarkitplace();
 	updateFloatingMargins();
-	$(window).resize(function () { updateFloatingMargins(); });
+
+	// When window resizes, update variables
+	$(window).resize(function () { 
+		updateIsMobile();
+		updateMarkitplace();
+		updateFloatingMargins(); 
+	});
+
 	// Load the checkbox filter menus
 	loadCheckboxes("categoryFilter", "category");
 	loadCheckboxes("priceFilter", "price");
@@ -286,25 +321,42 @@ function createMarker(userName, location, title, price, description, category,
 // USER INTERFACE
 // -----------------------------------------------------------------------------
 
+// The burger button is pressed
+function burgerButtonPressed() {
+	isBurgerActive = !isBurgerActive;
+	if (isMobile == true) {
+		if (isBurgerActive == true)
+			markitplace.style.display = "none";
+		else 
+			markitplace.style.display = "";
+	}
+}
+
 // A filter button is pressed
 function filterButtonPressed(filter_type) {
-	if (filter_type == "category") {
-		activeFilter = "category";
-		categoryFilter.style.display = "";
-		priceFilter.style.display = "none";
-		searchbar.style.display = "none";
-	} 
-	else if (filter_type == "price") {
-		activeFilter = "price";
-		categoryFilter.style.display = "none";
-		priceFilter.style.display = "";
-		searchbar.style.display = "none"
-	} 
-	else if (filter_type == "search") {
-		activeFilter = "search";
-		categoryFilter.style.display = "none";
-		priceFilter.style.display = "none";
-		searchbar.style.display = "";
+	if (activeFilter == filter_type) {
+		activeFilter = "";
+		hideFilterLists();
+	}
+	else {
+		if (filter_type == "category") {
+			activeFilter = "category";
+			categoryFilter.style.display = "";
+			priceFilter.style.display = "none";
+			searchbar.style.display = "none";
+		} 
+		else if (filter_type == "price") {
+			activeFilter = "price";
+			categoryFilter.style.display = "none";
+			priceFilter.style.display = "";
+			searchbar.style.display = "none"
+		} 
+		else if (filter_type == "search") {
+			activeFilter = "search";
+			categoryFilter.style.display = "none";
+			priceFilter.style.display = "none";
+			searchbar.style.display = "";
+		}
 	}
 }
 

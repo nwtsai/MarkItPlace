@@ -51,7 +51,7 @@ LA Hacks
 <!-- Navigation Bar -->
 <div><nav><div class="nav-wrapper nav-wrapper-fixed-top z-depth-1" id="navbar">
 	<a href="index.html">
-		<img id="logo" src="images/markitplace_logo4.png" />
+		<img class="hide-on-small-only" id="logo" src="images/markitplace_logo4.png" />
 	</a>
 	<a>
 		<img class="circle" id="userProfilePicture" />
@@ -59,7 +59,7 @@ LA Hacks
 	<a href="https://www.facebook.com/nwtsai3">
 		<span id="userName"></span>
 	</a>
-	<a class="brand-logo center hide-on-small-only" href="index.html">
+	<a id="markitplace" class="brand-logo center" href="index.html" style="display: inline;">
 		<span style="color: #726363;">MARK</span><span style="color: #f7f5f5;">IT</span><span style="color: #f7f5f5;">PLACE</span>
 	</a>	
 </div></nav></div>
@@ -128,7 +128,7 @@ LA Hacks
 
 <!-- Burger -->
 <div class="fixed-action-btn horizontal click-to-toggle" id="burger">
-	<a>
+	<a href="javascript:burgerButtonPressed()">
 		<div id="nav-icon1">
 			<span></span>
 			<span></span>
