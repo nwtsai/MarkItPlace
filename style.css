@@ -16,17 +16,17 @@ LA Hacks
 	top: 80px;
 	right: 15px;
 	height: 40px;
-}
+}*/
 
 .filter-ui {
 	background: #fff;
 	position: absolute;
-	top: 125px;
+	top: 75px;
 	right: 15px;
 	z-index: 100;
 	padding: 10px;
 	border-radius: 3px;
-}*/
+}
 
 #userProfilePicture {
 	display: none;
