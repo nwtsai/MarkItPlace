@@ -75,6 +75,9 @@ var priceFilter;
 var searchBar;
 var markitplace;
 var mobileProfilePicture;
+var map;
+var form;
+var button;
 
 // Flags
 var activeFilter = "";
@@ -169,6 +172,9 @@ window.onload = function() {
 	searchBar = document.getElementById("searchbar");
 	markitplace = document.getElementById("markitplace");
 	mobileProfilePicture = document.getElementById("mobileUserProfilePicture");
+	map = document.getElementById("map-leaflet");
+	form = document.getElementById("listItForm");
+	button = document.getElementById("ListItButton");
 
 	// Toggle global variable representing if currently mobile
 	function updateIsMobile() {
@@ -391,9 +397,6 @@ function hideFilterLists() {
 
 // Toggle some elements whenever list it or back to map is pressed
 function toggleForm() {
-	let map = document.getElementById("map-leaflet");
-	let form = document.getElementById("listItForm");
-	let button = document.getElementById("ListItButton");
 	if (map.style.display == "none") {
 		$("#burger").show();
 		showActiveFilter();
