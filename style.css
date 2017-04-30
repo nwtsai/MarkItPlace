@@ -46,13 +46,6 @@ LA Hacks
 	z-index: 10;
 }
 
-#logo {
-	left: 7px;
-	top: 1px;
-	position: absolute;
-	width: 57px;
-}
-
 #searchbar {
 	padding: 60px 20px 0px 20px;
 }
@@ -96,13 +89,6 @@ LA Hacks
 		padding: 15px 15px 25px 15px;
 		z-index: 10;
 	}
-
-	#logo {
-		left: 12px;
-		top: 5px;
-		position: absolute;
-		width: 50px;
-	}
 	
 	#searchbar {
 		padding: 0px 20px 0px 20px;
@@ -117,6 +103,13 @@ nav {
 	height: 60px; 
 	line-height: 60px;
 	background-color: #5ecacd !important;
+}
+
+#logo {
+	left: 7px;
+	top: 1px;
+	position: absolute;
+	width: 57px;
 }
 
 #markitplace {
