@@ -181,10 +181,14 @@ window.onload = function() {
 	// Update whether or not the MarkItPlace title is shown
 	function updateMarkitplace() {
 		if (isMobile == true) {
-			if (isBurgerActive == true)
-				markitplace.style.display = "none";
-			else 
+		 	if (map.style.display != "none") {
+				if (isBurgerActive == true)
+					markitplace.style.display = "none";
+				else 
+					markitplace.style.display = "";
+			} else {
 				markitplace.style.display = "";
+			}
 		}
 	}
 	
