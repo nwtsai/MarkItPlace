@@ -11,16 +11,6 @@ LA Hacks
    MOBILE 
 ------------------------------------------------------------------------------*/
 
-.filter-ui {
-	background: #fff;
-	position: absolute;
-	top: 73px;
-	right: 15px;
-	z-index: 100;
-	padding: 10px;
-	border-radius: 3px;
-}
-
 #map-leaflet {
 	width: 100%;
 	height: calc(100vh - 57px);
@@ -55,16 +45,6 @@ LA Hacks
 ------------------------------------------------------------------------------*/
 
 @media only screen and (min-width: 600px) {
-	.filter-ui {
-		background:#fff;
-		position:absolute;
-		top: 74px;
-		right:15px;
-		z-index:100;
-		padding:10px;
-		border-radius:3px;
-	}
-
 	#map-leaflet {
 		width: 100%;
 		height: calc(100vh - 65px);
@@ -125,6 +105,16 @@ nav {
 	top: 16px;
 	right: 20px;
 	height: 40px;
+}
+
+.filter-ui {
+	background:#fff;
+	position:absolute;
+	top: 75px;
+	right: 15px;
+	z-index: 100;
+	padding: 10px;
+	border-radius: 3px;
 }
 
 body { 
