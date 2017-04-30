@@ -178,7 +178,7 @@ window.onload = function() {
 
 	// Toggle global variable representing if currently mobile
 	function updateIsMobile() {
-		if ($(window).width() <= 600)
+		if ($(window).width() < 600)
 			isMobile = true;
 		else 
 			isMobile = false;
@@ -192,22 +192,20 @@ window.onload = function() {
 					markitplace.style.display = "none";
 				else 
 					markitplace.style.display = "";
-			} else {
+			} else 
 				markitplace.style.display = "";
-			}
 		}
 	}
 	
 	// Update floating button margins
 	function updateFloatingMargins() {
-		if ($(window).width() <= 1334)
+		if ($(window).width() < 1334)
 		{
 			$("#floating-buttons").css("margin-right", "-30px");
 			$("#filterButton1Background").css("margin-left", "-8px");
 			$("#filterButton2Background").css("margin-left", "-8px");
 			$("#filterButton3Background").css("margin-left", "-8px");
-		}
-		else {
+		} else {
 			$("#floating-buttons").css("margin-right", "-20px");
 			$("#filterButton1Background").css("margin-left", "-3px");
 			$("#filterButton2Background").css("margin-left", "-3px");
@@ -353,21 +351,18 @@ function filterButtonPressed(filter_type) {
 	if (activeFilter == filter_type) {
 		activeFilter = "";
 		hideFilterLists();
-	}
-	else {
+	} else {
 		if (filter_type == "category") {
 			activeFilter = "category";
 			categoryFilter.style.display = "";
 			priceFilter.style.display = "none";
 			searchbar.style.display = "none";
-		} 
-		else if (filter_type == "price") {
+		} else if (filter_type == "price") {
 			activeFilter = "price";
 			categoryFilter.style.display = "none";
 			priceFilter.style.display = "";
 			searchbar.style.display = "none"
-		} 
-		else if (filter_type == "search") {
+		} else if (filter_type == "search") {
 			activeFilter = "search";
 			categoryFilter.style.display = "none";
 			priceFilter.style.display = "none";
@@ -410,8 +405,7 @@ function toggleForm() {
 			else
 				markitplace.style.display = "";
 		}
-	}
-	else {
+	} else {
 		$("#burger").hide();
 		hideFilterLists();
 		map.style.display = "none";
