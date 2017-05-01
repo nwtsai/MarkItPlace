@@ -185,7 +185,7 @@ window.onload = function() {
 			isMobile = false;
 	}
 
-	// Update style of mobile picture when user changes phone orientation
+	// Update visibility of mobile picture when user changes phone orientation
 	function updateMobilePicture() {
 		if (isMobile == true) {
 			if (map.style.display == "none") 
