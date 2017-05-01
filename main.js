@@ -330,7 +330,7 @@ function createMarker(userName, location, title, price, description, category,
 				+ "font-size: 12px'>" + description + "<br>Seller: " 
 				+ contactInformation + "</div>"
 				+ "</span>" + (!imageID ? "" : (
-				"<br><img src='http://res.cloudinary.com/mar"
+				"<br><img src='https://res.cloudinary.com/mar"
 				+ "kitplace/image/upload/" + imageID + "' width='100px'"
 				+ " height='auto'>")),
 				plainTextTitle: title,
