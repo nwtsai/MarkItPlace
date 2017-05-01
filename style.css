@@ -96,7 +96,6 @@ nav {
 	z-index: 100;
 	background-color: white;
 	color: #726363;
-	padding: 0px 0px 0px 29px;
 	border-radius: 4px;
 }
 
@@ -106,7 +105,6 @@ nav {
 	height: 53px;
 	right: 11.5px;
 	width: 220px;
-	padding: 0px 30px 0px 0px;
 }
 
 #logo {
