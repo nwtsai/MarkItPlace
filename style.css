@@ -12,32 +12,19 @@ LA Hacks
 ------------------------------------------------------------------------------*/
 
 #map-leaflet {
-	width: 100%;
 	height: calc(100vh - 57px);
-	font-family: "Lato";
-	font-variant: caps;
 }
 
 .slogan {
 	font-size: 25px;
-	font-family: "Fugaz One";
 }
 	
 #authorize {
-	width: 100% !important;
 	height: 350px !important;
-	position: absolute;
-	left: 50%;
-	bottom: 0px;
-	background-color: #f7f5f5;
-	transform: translate(-50%, 0);
-	text-align: center;
-	padding: 15px 15px 25px 15px;
-	z-index: 10;
 }
 
-#searchbar {
-	padding: 60px 20px 0px 20px;
+#searchNavItem {
+	left: 52px;
 }
 
 /*------------------------------------------------------------------------------
@@ -46,32 +33,20 @@ LA Hacks
 
 @media only screen and (min-width: 600px) {
 	#map-leaflet {
-		width: 100%;
 		height: calc(100vh - 65px);
-		font-family: "Lato";
-		font-variant: caps;
 	}
 
 	.slogan {
 		font-size: 50px;
-		font-family: "Fugaz One";
 	}
 
 	#authorize {
-		width: 100% !important;
 		height: 400px !important;
-		position: absolute;
-		left: 50%;
-		bottom: 0px;
-		background-color: #f7f5f5;
-		transform: translate(-50%, 0);
-		text-align: center;
-		padding: 15px 15px 25px 15px;
-		z-index: 10;
 	}
-	
-	#searchbar {
-		padding: 0px 20px 0px 20px;
+
+	#searchNavItem {
+		left: auto;
+		width: 350px;
 	}
 }
 
@@ -83,6 +58,56 @@ nav {
 	height: 60px; 
 	line-height: 60px;
 	background-color: #5ecacd !important;
+}
+
+#map-leaflet {
+	width: 100%;
+	font-family: "Lato";
+	font-variant: caps;
+}
+
+.slogan {
+	font-family: "Fugaz One";
+}
+
+#authorize {
+	width: 100% !important;
+	position: absolute;
+	left: 50%;
+	bottom: 0px;
+	background-color: #f7f5f5;
+	transform: translate(-50%, 0);
+	text-align: center;
+	padding: 15px 15px 25px 15px;
+	z-index: 10;
+}
+
+#search-wrapper {
+	width: 100%;
+}
+
+#navBarForm {
+	height: 53px;
+	z-index: 100;
+}
+
+#searchNavItem {
+	height: 53px;
+	z-index: 100;
+	top: 71.5px;
+	position: absolute;
+	right: 11.5px;
+}
+
+#searchbar {
+	z-index: 100;
+	background-color: white;
+	color: #726363;
+}
+
+#searchterm {
+	z-index: 100;
+	height: 53px;
 }
 
 #logo {
@@ -110,9 +135,9 @@ nav {
 .filter-ui {
 	background:#fff;
 	position:absolute;
-	top: 75px;
-	right: 15px;
-	z-index: 100;
+	top: 71.5px;
+	right: 11.5px;
+	z-index: 50;
 	padding: 10px;
 	border-radius: 3px;
 }

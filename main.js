@@ -406,24 +406,6 @@ function hideFilterLists() {
 	searchbar.style.display = "none"
 }
 
-// When all day is pressed
-/*function allDayPressed() {
-	if (allDayButton.checked == true) {
-		// Hide availability button and availabilities
-		$("#availability-list").hide();
-		$("#availabilityButton").hide();
-	} 
-}
-
-// When custom days is pressed
-function customDaysPressed() {
-	if (customDayButton.checked == true) {
-		// Show availability button and availabilities
-		$("#availability-list").show();
-		$("#availabilityButton").show();
-	}
-}*/
-
 // Toggle some elements whenever list it or back to map is pressed
 function toggleForm() {
 	if (map.style.display == "none") {

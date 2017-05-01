@@ -65,23 +65,18 @@ LA Hacks
 	<a id="markitplace" class="brand-logo center" href="index.html">
 		<span style="color: #726363;">MARK</span><span style="color: #f7f5f5;">IT</span><span style="color: #f7f5f5;">PLACE</span>
 	</a>	
+    
+    <!-- Search Bar -->
+  	<ul id="searchNavItem"><li id="search-wrapper"><form id="navBarForm">
+	    <div id="searchbar" style="display: none;" class="input-field">
+	    	<input oninput="update();" id="searchTerm" type="text" autocomplete="off">
+	   	</div>
+  	</form></li></ul>
 </div></nav></div>
 
 <!-- Filters -->
 <div id="categoryFilter" style="display: none;" class='filter-ui'></div>
 <div id="priceFilter" style="display: none;" class='filter-ui'></div>
-<div id="searchbar" style="display: none;" class="input-field">
-	<table id="searchBarTable"><tbody><tr>
-		<td>
-			<input id="searchTerm" type="text">
-		</td>
-		<td style="width: 10px;">
-			<button id="searchButton" class="waves-effect waves-light btn z-depth-2" onClick="update();">
-				<i class="material-icons">search</i>
-			</button>
-		</td>
-	</tr></tbody></table>
-</div>
 
 <!-- Mapbox -->
 <div id="map-leaflet">
