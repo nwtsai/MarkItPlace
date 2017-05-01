@@ -48,7 +48,7 @@ function addSelect(divname, n) {
 function addTimeFrom(divname, n) {
 	let newDiv = document.createElement("div");
 	newDiv.className = "input-field col s6 l2";
-	newDiv.id = "item"+n;
+	newDiv.id = "item" + n;
 	let html = "<input id='timeFrom" + n
 		+ "' type='text' class='validate' placeholder='00:00' />";
 	html += "<label for='timeFrom" + n + "'>Time From (24-hr)</label>";

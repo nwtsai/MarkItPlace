@@ -78,6 +78,8 @@ var mobileProfilePicture;
 var map;
 var form;
 var button;
+var allDayButton;
+var customDayButton;
 
 // Flags
 var activeFilter = "";
@@ -176,6 +178,8 @@ window.onload = function() {
 	map = document.getElementById("map-leaflet");
 	form = document.getElementById("listItForm");
 	button = document.getElementById("ListItButton");
+	allDayButton = document.getElementById("allDays");
+	customDayButton = document.getElementById("customDays");
 
 	// Toggle global variable representing if currently mobile
 	function updateIsMobile() {
@@ -210,8 +214,7 @@ window.onload = function() {
 	
 	// Update floating button margins
 	function updateFloatingMargins() {
-		if ($(window).width() < 1334)
-		{
+		if ($(window).width() < 1334) {
 			$("#floating-buttons").css("margin-right", "-30px");
 			$("#filterButton1Background").css("margin-left", "-8px");
 			$("#filterButton2Background").css("margin-left", "-8px");
@@ -402,6 +405,24 @@ function hideFilterLists() {
 	priceFilter.style.display = "none";
 	searchbar.style.display = "none"
 }
+
+// When all day is pressed
+/*function allDayPressed() {
+	if (allDayButton.checked == true) {
+		// Hide availability button and availabilities
+		$("#availability-list").hide();
+		$("#availabilityButton").hide();
+	} 
+}
+
+// When custom days is pressed
+function customDaysPressed() {
+	if (customDayButton.checked == true) {
+		// Show availability button and availabilities
+		$("#availability-list").show();
+		$("#availabilityButton").show();
+	}
+}*/
 
 // Toggle some elements whenever list it or back to map is pressed
 function toggleForm() {
