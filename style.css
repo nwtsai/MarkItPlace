@@ -11,10 +11,6 @@ LA Hacks
    MOBILE 
 ------------------------------------------------------------------------------*/
 
-#map-leaflet {
-	height: calc(100vh - 57px);
-}
-
 .slogan {
 	font-size: 25px;
 }
@@ -32,10 +28,6 @@ LA Hacks
 ------------------------------------------------------------------------------*/
 
 @media only screen and (min-width: 600px) {
-	#map-leaflet {
-		height: calc(100vh - 65px);
-	}
-
 	.slogan {
 		font-size: 50px;
 	}
@@ -62,6 +54,7 @@ nav {
 
 #map-leaflet {
 	width: 100%;
+	height: calc(100vh - 60px);
 	font-family: "Lato";
 	font-variant: caps;
 }
