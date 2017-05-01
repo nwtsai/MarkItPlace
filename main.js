@@ -393,7 +393,7 @@ function showActiveFilter() {
 		categoryFilter.style.display = "";
 	else if (activeFilter == "price")
 		priceFilter.style.display = "";
-	else if (activeFilter == "search")
+	else if (activeFilter == "search") 
 		searchbar.style.display == "";
 	else
 		hideFilterLists();
