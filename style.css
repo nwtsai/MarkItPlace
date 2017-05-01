@@ -134,11 +134,6 @@ body {
 	font-family: "Fugaz One";
 }
 
-.brand-logo:hover {
-	font-family: "Fugaz One";
-	text-decoration: underline;
-}
-
 #userName {
 	display: block;
 	left: 115px;
