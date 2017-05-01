@@ -166,6 +166,7 @@ function deleteItem_wrapper(title) {
 
 // Initializations
 window.onload = function() {
+	
 	// Initialize global elements
 	categoryFilter = document.getElementById("categoryFilter");
 	priceFilter = document.getElementById("priceFilter");
@@ -182,6 +183,16 @@ window.onload = function() {
 			isMobile = true;
 		else 
 			isMobile = false;
+	}
+
+	// Update style of mobile picture when user changes phone orientation
+	function updateMobilePicture {
+		if (isMobile == true) {
+			if (map.style.display == "none") 
+				mobileProfilePicture.style.display = "";
+			else 
+				mobileProfilePicture.style.display = "none";
+		}
 	}
 
 	// Update whether or not the MarkItPlace title is shown
@@ -215,12 +226,14 @@ window.onload = function() {
 
 	// Initialize updates
 	updateIsMobile();
+	updateMobilePicture();
 	updateMarkitplace();
 	updateFloatingMargins();
 
 	// When window resizes, update variables
 	$(window).resize(function () { 
 		updateIsMobile();
+		updateMobilePicture();
 		updateMarkitplace();
 		updateFloatingMargins(); 
 	});
