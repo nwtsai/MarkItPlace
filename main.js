@@ -186,7 +186,7 @@ window.onload = function() {
 	}
 
 	// Update style of mobile picture when user changes phone orientation
-	function updateMobilePicture {
+	function updateMobilePicture() {
 		if (isMobile == true) {
 			if (map.style.display == "none") 
 				mobileProfilePicture.style.display = "";
