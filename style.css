@@ -21,6 +21,12 @@ LA Hacks
 
 #searchNavItem {
 	left: 52px;
+	width: auto;
+}
+
+#searchTerm {
+	left: 52px;
+	width: 280.5px;
 }
 
 /*------------------------------------------------------------------------------
@@ -39,6 +45,11 @@ LA Hacks
 	#searchNavItem {
 		left: auto;
 		width: 258px;
+	}
+
+	#searchTerm {
+		left: auto;
+		width: 232px;
 	}
 }
 
@@ -104,7 +115,6 @@ nav {
 	z-index: 100;
 	height: 53px;
 	right: 11.5px;
-	width: 232px;
 }
 
 #logo {
