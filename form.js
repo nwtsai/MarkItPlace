@@ -236,8 +236,12 @@ function validateForm() {
 	return true;
 }
 
-// Parses price to ensure that only correct dollar amount is shown
+// Parses price to ensure that only correct dollar amount within range is shown
 function parsePrice(e) {   
+	if (e.value > 9999)
+		e.value = 9999.00;
+	else if (e.value < 0)
+		e.value = 0.00;
 	e.value = parseFloat(e.value).toFixed(2);
 }
 			
