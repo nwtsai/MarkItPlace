@@ -235,6 +235,11 @@ function validateForm() {
 	}
 	return true;
 }
+
+// Parses price to ensure that only correct dollar amount is shown
+function parsePrice(e) {   
+	e.value = parseFloat(e.value).toFixed(2);
+}
 			
 // -----------------------------------------------------------------------------
 // Submit Form
