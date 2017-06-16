@@ -148,28 +148,28 @@ function validateForm() {
 	// Item
 	let product = document.getElementById("item").value;
 	if (product == "") {
-		alert("Please input item name");
+		Materialize.toast("Missing item name", 5000);
 		return false;
 	}
 	let price = document.getElementById("price").value;
 	if (price == "") {
-		alert("Please input price");
+		Materialize.toast("Missing item price", 5000);
 		return false;
 	}
 	else if (isNaN(price)) {
-		alert("Please input valid price (must be a number)");
+		Materialize.toast("Price must be a valid number", 5000);
 		return false;
 	}
 	let category = document.getElementById("category");
 	let categoryValue = category.options[category.selectedIndex].value;
 	if (category == "") {
-		alert("Please select a category");
+		Materialize.toast("Please select a category", 5000);
 		return false;
 	}
 	
 	// Availibility inputs
 	if (id == 0) {
-		alert("Please add an availability");
+		Materialize.toast("Please add an availability", 5000);
 		return false;
 	}
 	else {
@@ -185,40 +185,33 @@ function validateForm() {
 			var selectValue = select.options[select.selectedIndex].value;
 			
 			if (selectValue == "") {
-				alert("Please fill out 'Day of Week' for Availability " 
-					+ availability);
+				Materialize.toast("Please fill out 'Day of Week' for Availability " + availability, 5000);
 				return false;
 			}
 			if (timeFrom == "") {
-				alert("Please fill out 'Time From' for Availability " 
-					+ availability);
+				Materialize.toast("Please fill out 'Time From' for Availability " + availability, 5000);
 				return false;
 			}
 			if (timeTo == "") {
-				alert("Please fill out 'Time To' for Availability " 
-					+ availability);
+				Materialize.toast("Please fill out 'Time To' for Availability " + availability, 5000);
 				return false;
 			}
 			if (location == "") {
-				alert("Please fill out 'Location' for Availability " 
-					+ availability);
+				Materialize.toast("Please fill out 'Location' for Availability " + availability, 5000);
 				return false;
 			}
 			
 			// Check for semicolon
 			if (timeFrom.indexOf(';') > -1) {
-				alert("Please do not use semicolon(s) in 'Time From' for "
-					+ "Availibility " + availability);
+				Materialize.toast("Please do not use semicolon(s) in 'Time From' for " + "Availibility " + availability, 5000);
 				return false;
 			}
 			else if (timeTo.indexOf(';') > -1) {
-				alert("Please do not use semicolon(s) in 'Time To' for "
-					+ "Availibility " + availability);
+				Materialize.toast("Please do not use semicolon(s) in 'Time To' for " + "Availibility " + availability, 5000);
 				return false;
 			}
 			else if (location.indexOf(';') > -1) {
-				alert("Please do not use semicolon(s) in 'Location' for "
-					+ "Availibility " + availability);
+				Materialize.toast("Please do not use semicolon(s) in 'Location' for " + "Availibility " + availability, 5000);
 				return false;
 			}
 		}
@@ -226,11 +219,11 @@ function validateForm() {
 
 	// Check for semicolon
 	if (product.indexOf(';') > -1) {
-		alert("Please do not use semicolon(s) in the Item Name");
+		Materialize.toast("Please do not use semicolon(s) in the Item Name", 5000);
 		return false;
 	}
 	else if (document.getElementById("description").value.indexOf(';') > -1) {
-		alert("Please do not use semicolon(s) in the Description");
+		Materialize.toast("Please do not use semicolon(s) in the Description", 5000);
 		return false;
 	}
 	return true;
