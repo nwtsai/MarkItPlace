@@ -6,5 +6,5 @@ a live map.
 
 Usage information displayed in application.
 
-Copyright © 2017 Linus Chen, Kevin Hsieh, Frederick Kennedy, Nathan Tsai. All
-Rights Reserved.
+Copyright © 2017 Linus Chen, Kevin Hsieh, Frederick Kennedy, and Nathan Tsai.
+All Rights Reserved.
